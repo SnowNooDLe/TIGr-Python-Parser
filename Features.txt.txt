@@ -1,0 +1,14 @@
+TOM TEAM
+	Interactive front-end
+	Command line switches
+	Outputs with Tkinter
+	Uses regular expressions in parser
+MARCUS TEAM
+	Supports Piping and Scripting
+	Outputs with another python graphics package (pygame)
+	Outputs with turtle.py
+
+
+Grading scale: 
+1 = adequate quality (= How is this more flexible, functional, robust or portable?)  
+2 = complete and well implemented (=What is clever about this?)
