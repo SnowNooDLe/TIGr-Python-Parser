@@ -1,7 +1,0 @@
-pen 3
-x BLANK
-x 50
-yx ERROR
-y 50
-pen_down
-draw
