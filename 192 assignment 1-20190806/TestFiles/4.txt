@@ -1,0 +1,8 @@
+X TEN
+yy yy 50
+pen 2
+pen_up
+pen_up
+pen_down
+pen_down
+draw
