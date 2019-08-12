@@ -3,24 +3,27 @@ from Reader import *
 from Parser import *
 from TKDrawer import *
 from TXTDrawer import *
-from TIGr import AbstractDrawer, AbstractParser, AbstractSourceReader
+from TDrawer import *
+from TKCmd import *
+from ParserMike import *  # TODO Make this a package
 
-if len(sys.argv) == 1:
-    print("no args > should launch console") #SHOULD LAUNCH CMD
-else:
+
+def main():
     outputs = []
+    if len(sys.argv) == 1:
+        TKInterShell().cmdloop()  # NEED TO REMOVE THIS IF YOU ADD IN SECOND CMD LINE
     for arg in sys.argv:
         if arg == '-TK':
             outputs.append(Reader(Parser(TKDrawer())))
         if arg == '-T':
-            pass
-        if arg == '-PG':
-            pass
+            outputs.append(Reader(Parser(TDrawer())))
         if arg == '-TXT':
             outputs.append(Reader(Parser(TXTDrawer())))
-    if (len(outputs) == 0):
+    if len(outputs) == 0:
         outputs.append(Reader(Parser(TXTDrawer())))
     for output in outputs:
         output.go()
-# ADD IN A CHECK FOR NO FILE GIVEN VIA PIPING OR WITH A GIVEN DIRECTORY, THEN LAUNCH THE CONSOLE WITH A MESSAGE
-# TODO MOVE all classes to seperate files and move all interpreters to a sub folder called \parsers
+
+
+if __name__ == "__main__":
+    main()
