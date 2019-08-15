@@ -60,7 +60,7 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 
 ## Marcus and Tom Points and Reasoning:
 
-Output with Pygame x2:
+* Output with Pygame x2:
 
 	* More functional
 	* We add more drawing functions to enhance the drawer
