@@ -25,9 +25,24 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 ## Josiah and Tom Points and Reasoning:
 
 * Interactive Front-End x2
+
+	* More Functional
+	* Allows the user to input commands one by one instead of from a text file.
+	
 * Command Line Switches x2
+
+	* More Functional
+	* Allows for multiple outputs at the same time
+	
 * Outputs with TKinter x2
+
+	* More Functional
+	* Even more Functionality with Drawing Shapes
+	
 * Supports Piping and Scripting x2
+
+	* More Flexible
+	* Allows the user to Pipe in a file and Output it to multiple Drawers
 
 
 ## Josiah and Marcus Points and Reasoning:
