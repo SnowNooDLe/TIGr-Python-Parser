@@ -2,7 +2,7 @@
 Made for the 2019 Ara Advanced Programming (In Python) Class
 
 
-Files i did with Tom:
+## Josiah and Tom Created Files:
 
 * Parser
 * Reader
@@ -10,19 +10,18 @@ Files i did with Tom:
 * TKDrawer
 
 
-Files i did with Marcus:
+## Josiah and Marcus Created Files:
 
 * ParserMike
 * TDrawer
 
 
-Files that were worked on by both teams:
+## Marcus and Tom Created Files:
 
-* TXTDrawer
-* Main
+* (INSERT FILES HERE)
 
 
-Points Gained with Tom:
+## Josiah and Tom Points and Reasoning:
 
 * Interactive Front-End x2
 * Command Line Switches x2
@@ -30,10 +29,42 @@ Points Gained with Tom:
 * Supports Piping and Scripting x2
 
 
-Points Gained with Marcus:
+## Josiah and Marcus Points and Reasoning:
 
-* Parsed from Configurable Lookup Table x1
-* Outputs with turtle x2
-* Interactive front-end
-* Command line switches
-* Uses generic parsing engine
+* Parsed from Configurable Lookup Table x12:
+	
+	* More Flexible
+	* It easier to add new functions to lookup table than adding functions to the class directly
+  
+* Outputs with turtle x2:
+
+  * More Functional
+  * We added more drawing functions to enhance the drawe
+  
+* Interactive front-end x2:
+
+  * More Functional
+  * Users can input commands dynamically instead of inputting a .txt file
+  
+* Command line switches x2:
+
+  * More Flexible
+  * Users can switch between different drawers with command switches
+  
+* Uses generic parsing engine x2:
+  
+  * More robust
+  * Users can input slightly incorrect commands (e.g. 'C           100' and it will still work)
+
+
+## Marcus and Tom Points and Reasoning:
+
+Output with Pygame x2:
+	More functional
+	We add more drawing functions to enhance the drawer
+
+
+Files that were worked on by both teams:
+
+* TXTDrawer
+* Main
