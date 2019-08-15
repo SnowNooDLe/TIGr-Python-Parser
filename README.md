@@ -14,6 +14,7 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 
 * ParserMike
 * TDrawer
+* LookupArgParser
 
 
 ## Marcus and Tom Created Files:
@@ -60,8 +61,9 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 ## Marcus and Tom Points and Reasoning:
 
 Output with Pygame x2:
-	More functional
-	We add more drawing functions to enhance the drawer
+
+	* More functional
+	* We add more drawing functions to enhance the drawer
 
 
 ## Files that were worked on by both teams:
