@@ -64,7 +64,7 @@ Output with Pygame x2:
 	We add more drawing functions to enhance the drawer
 
 
-Files that were worked on by both teams:
+## Files that were worked on by both teams:
 
 * TXTDrawer
 * Main
