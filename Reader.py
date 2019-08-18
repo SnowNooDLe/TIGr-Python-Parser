@@ -7,6 +7,7 @@ class Reader(AbstractSourceReader):
         content = []
         if not sys.stdin.isatty():
             data = sys.stdin.readlines()
+            print(data)
             if len(data) > 0:
                 f = open("cache.txt", "w")
                 for line in data:
