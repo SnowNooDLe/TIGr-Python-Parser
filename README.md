@@ -4,7 +4,7 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 ## Added By Tom S
 Made some changes in few files
 1. Parser.py
-<img src="immage/change1.jpg" alt="change1" class="inline"/>
+![alt text](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change1.JPG)
 Adding try & except bits for self.data = row[1] as if given data in txt is U or P
 for pen up and down, will give out of index error without this
 
