@@ -4,21 +4,29 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 ## Added By Tom S
 Made some changes in few files
 1. Parser.py
-![alt text](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change1.JPG)
+
+![Changes made 1](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change1.JPG)
+
 Adding try & except bits for self.data = row[1] as if given data in txt is U or P
 for pen up and down, will give out of index error without this
 
 2. PyGameDrawer.py
-<img src="immage/change2.jpg" alt="change2" class="inline"/>
+
+![Changes made 2](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change2.JPG)
+
 Adding array called penlist to get value to call from self.colours dictionary
 Modified select_pen method so we can choose the colour based on int value e.g. 1,2,3
 
 3. TKDrawer.py
-<img src="immage/change3.jpg" alt="change3" class="inline"/>
+
+![Changes made 3](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change3.JPG)
+
 Again, adding penlist that can be called inside select_pen method as given value will be an integer.
 
 4. draw_line method for most drawer
-<img src="immage/change4.jpg" alt="change4" class="inline"/>
+
+![Changes made 4](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change4.JPG)
+
 Moved where newCoords variable is, it used to be after if statement but that case, if pen is not down, self.x & self.y still needs to be changed without drawing but newcoords variable will only be created if pen is down.
 
 
