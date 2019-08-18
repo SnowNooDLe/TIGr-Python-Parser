@@ -27,7 +27,7 @@ class LookupArgParser(AbstractParser):
             'Y': lambda: self.drawer.go_down(self.data[0]),
             'U': lambda: self.drawer.pen_up(),
             'C': lambda: self.drawer.draw_circle(self.data[0]),
-            'R': lambda: self.drawer.draw_rectangle(self.data[0], self.data[1]),
+            'R': lambda: self.drawer.draw_rectangle(self.data[0]),
             'T': lambda: self.drawer.draw_triangle(self.data[0]),
         }
         # Clever Solution combining lookup table and argparse!

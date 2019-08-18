@@ -49,14 +49,14 @@ class TDrawer(AbstractDrawer):
     def draw_rectangle(self, size):
         ourDirection = 0
         for i in range(4):
-            self.draw_line(ourDirection, size)
             ourDirection = 90
+            self.draw_line(ourDirection, size)
 
     def draw_triangle(self, size):
         ourDirection = 0
         for i in range(3):
-            self.draw_line(ourDirection, size)
             ourDirection = 120
+            self.draw_line(ourDirection, size)
 
     def end(self):
         turtle.exitonclick()
