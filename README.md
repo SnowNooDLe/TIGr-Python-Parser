@@ -29,6 +29,15 @@ Again, adding penlist that can be called inside select_pen method as given value
 
 Moved where newCoords variable is, it used to be after if statement but that case, if pen is not down, self.x & self.y still needs to be changed without drawing but newcoords variable will only be created if pen is down.
 
+5. TDrawer.py
+
+![Changes made 5](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/change5.JPG)
+
+* initialize the penlist when its created as unlike TKinter or PyGame, turtle uses with string, but given txt value will be an integer value, so we can select string value out of an array with given integer by index.
+* For I & Chris, decided to do go_along & go_down like in photo as we don't want turtle to draw the line while its moving and if you guys want that way, feel free to do so :)
+
+
+
 
 ## Josiah and Tom Created Files:
 
