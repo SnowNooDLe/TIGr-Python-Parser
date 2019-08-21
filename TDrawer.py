@@ -36,12 +36,9 @@ class TDrawer(AbstractDrawer):
     def draw_line(self, direction, distance):
     # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
         direction = int(direction)
-        print(direction)
         if direction == 90 or direction == 270:
-            print("MINUS 90")
             direction -= 90
         else:
-            print("MINUS 180")
             direction += 90
         distance = int(distance)
         turtle.seth(direction)
