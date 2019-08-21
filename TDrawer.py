@@ -37,7 +37,7 @@ class TDrawer(AbstractDrawer):
         direction = int(direction)
         distance = int(distance)
         # based on TKinter, when angles increasing, turning left, so approach same way, turning left.
-        turtle.left(direction)
+        turtle.setheading(direction)
         if (turtle.isdown()):
             turtle.forward(distance)
 
