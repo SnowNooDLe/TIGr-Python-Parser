@@ -34,10 +34,14 @@ class TDrawer(AbstractDrawer):
             turtle.sety(int(down))
 
     def draw_line(self, direction, distance):
+        # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
         direction = int(direction)
+        if direction == 90 or direction == 270:
+            direction -= 90
+        else:
+            direction += 90
         distance = int(distance)
-        # based on TKinter, when angles increasing, turning left, so approach same way, turning left.
-        turtle.left(direction)
+        turtle.seth(direction)
         if (turtle.isdown()):
             turtle.forward(distance)
 
@@ -50,13 +54,13 @@ class TDrawer(AbstractDrawer):
         ourDirection = 0
         for i in range(4):
             self.draw_line(ourDirection, size)
-            ourDirection = 90
+            ourDirection += 90
 
     def draw_triangle(self, size):
         ourDirection = 0
         for i in range(3):
             self.draw_line(ourDirection, size)
-            ourDirection = 120
+            ourDirection += 120
 
     def end(self):
         turtle.exitonclick()
