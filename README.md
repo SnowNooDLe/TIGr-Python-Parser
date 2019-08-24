@@ -53,7 +53,7 @@ Moved where newCoords variable is, it used to be after if statement but that cas
 
 ![TK shapes](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/TK1.JPG)
 
-![PyGame shapes](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/P1.JPG)
+![PyGame shapes](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/p1.JPG)
 
 
 
