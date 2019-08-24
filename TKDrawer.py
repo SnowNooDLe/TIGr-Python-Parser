@@ -33,6 +33,8 @@ class TKDrawer(AbstractDrawer):
     def draw_line(self, direction, distance):
         direction = int(direction)
         distance = int(distance)
+        if direction == 0 or direction == 180:
+            direction += 180
         # as we only want to draw line when pen is down but if pen is up and wanna draw line, pen will be moved without leaving mark,
         # so still need to change coordinate, hence get new coords
         newCoords = self.getDestination(self.x, self.y, direction, distance)
@@ -66,7 +68,7 @@ class TKDrawer(AbstractDrawer):
             ourDirection += 90
 
     def draw_triangle(self, size):  # M
-        ourDirection = 0
+        ourDirection = 120
         for i in range(3):
             self.draw_line(ourDirection, size)
             ourDirection += 120
