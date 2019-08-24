@@ -46,6 +46,8 @@ class PyGameDrawer(AbstractDrawer):
     def draw_line(self, direction, distance):
         direction = int(direction)
         distance = int(distance)
+        if direction == 0 or direction == 180:
+            direction += 180
         # doesnt matter whether pen is down or not, if this method is called, will still need to get new coords as pen will be moved
         # except depends on the situation, may draw the line or not
         newCoords = self.getDestination(self.x, self.y, direction, distance)
