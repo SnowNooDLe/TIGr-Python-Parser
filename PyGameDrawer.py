@@ -52,7 +52,7 @@ class PyGameDrawer(AbstractDrawer):
         # except depends on the situation, may draw the line or not
         newCoords = self.getDestination(self.x, self.y, direction, distance)
         if (self.penDown):
-            pygame.draw.line(self.screen, self.penColour, [self.x, self.y], newCoords, 1)
+            pygame.draw.line(self.screen, self.penColour, [int(self.x), int(self.y)], newCoords, 1)
         self.x = newCoords[0]
         self.y = newCoords[1]
         pygame.display.flip()
@@ -68,7 +68,8 @@ class PyGameDrawer(AbstractDrawer):
         return new_x, new_y
 
     def draw_circle(self, size):
-        pygame.draw.circle(self.screen, self.penColour, [self.x, self.y], int(size))
+        # Adding int for both self.x and y as depends on what we drew before, x and y value can be float
+        pygame.draw.circle(self.screen, self.penColour, [int(self.x), int(self.y)], int(size))
         pygame.display.flip()
 
     def draw_rectangle(self, size):
@@ -78,7 +79,7 @@ class PyGameDrawer(AbstractDrawer):
             ourDirection += 90
 
     def draw_triangle(self, size):
-        ourDirection = 0
+        ourDirection = 120
         for i in range(3):
             self.draw_line(ourDirection, size)
             ourDirection += 120
