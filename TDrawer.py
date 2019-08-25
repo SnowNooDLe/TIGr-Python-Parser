@@ -3,6 +3,8 @@ from TIGr import AbstractDrawer
 import turtle
 
 
+# Turtle uses counter clockwise system and zero point starts from the left hand side
+
 class TDrawer(AbstractDrawer):
     def __init__(self):
         self.penlist = ["black", "red", "blue"]
@@ -18,32 +20,39 @@ class TDrawer(AbstractDrawer):
 
     # Because for along and down, we dont wanna draw line while we are moving
     def go_along(self, along):
+        x = turtle.xcor()
         if (turtle.isdown()):
             turtle.penup()
-            turtle.setx(int(along))
+            turtle.setx(x + int(along))
             turtle.pendown()
         else:
-            turtle.setx(int(along))
+            turtle.setx(x + int(along))
 
     def go_down(self, down):
+        y = turtle.ycor()
         if (turtle.isdown()):
             turtle.penup()
-            turtle.sety(int(down))
+            turtle.sety(y + int(down))
             turtle.pendown()
         else:
-            turtle.sety(int(down))
+            turtle.goty(y + int(down))
 
     def draw_line(self, direction, distance):
-    # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
-        direction = int(direction)
-        if direction == 90 or direction == 270:
-            direction -= 90
-        else:
-            direction += 90
+        # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
+        direction = self._convert_direction(direction)
         distance = int(distance)
         turtle.seth(direction)
         if (turtle.isdown()):
             turtle.forward(distance)
+
+    def _convert_direction(self, direction):
+        # Turtle default direction:     convert
+        # 90 - north                    0 -> 90        +90
+        # 0 - east                      90-> 0         -90
+        # 270 - south                   180 -> 270     +90
+        # 180 - west                    270-> 180      -90
+        newdirection = (direction + 90) * -1 % 360
+        return newdirection
 
     def draw_circle(self, size):
         turtle.circle(int(size))
@@ -53,14 +62,26 @@ class TDrawer(AbstractDrawer):
     def draw_rectangle(self, size):
         ourDirection = 0
         for i in range(4):
-            ourDirection = 90
             self.draw_line(ourDirection, size)
+            ourDirection -= 90
 
     def draw_triangle(self, size):
         ourDirection = 0
         for i in range(3):
-            ourDirection = 120
             self.draw_line(ourDirection, size)
+            ourDirection -= 120
 
     def end(self):
         turtle.exitonclick()
+
+
+if __name__ == '__main__':
+    d = TDrawer()
+    d.draw_circle(50)
+    d.go_along(50)
+    d.draw_rectangle(50)
+    d.go_along(50)
+    d.draw_rectangle(50)
+    d.go_along(50)
+    d.draw_triangle(50)
+    d.end()
