@@ -51,7 +51,7 @@ class TDrawer(AbstractDrawer):
         # 0 - east                      90-> 0         -90
         # 270 - south                   180 -> 270     +90
         # 180 - west                    270-> 180      -90
-        newdirection = (direction + 90) * -1 % 360
+        newdirection =  (direction + 90) % 360
         return newdirection
 
     def draw_circle(self, size):
@@ -77,11 +77,11 @@ class TDrawer(AbstractDrawer):
 
 if __name__ == '__main__':
     d = TDrawer()
-    d.draw_circle(50)
-    d.go_along(50)
+    # d.draw_circle(50)
+    # d.go_along(50)
     d.draw_rectangle(50)
-    d.go_along(50)
-    d.draw_rectangle(50)
+    # d.go_along(50)
+    # d.draw_rectangle(50)
     d.go_along(50)
     d.draw_triangle(50)
     d.end()

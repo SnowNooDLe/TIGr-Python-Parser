@@ -9,7 +9,7 @@ class TKDrawer(AbstractDrawer):
         self.x = 250
         self.y = 250
         self.master = Tk()
-        self.w = Canvas(self.master, width=500, height=500)
+        self.w = Canvas(self.master, width=1024, height=1024)
         self.w.pack()
         self.pen = "black"
         self.penDown = True

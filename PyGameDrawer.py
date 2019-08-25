@@ -13,7 +13,7 @@ from TIGr import AbstractDrawer
 class PyGameDrawer(AbstractDrawer):
     def __init__(self):
         pygame.init()
-        self.size = self.width, self.height = 500, 500
+        self.size = self.width, self.height = 1024, 1024
         self.screen = pygame.display.set_mode(self.size)
         self.x = self.width // 2
         self.y = self.height // 2
