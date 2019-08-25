@@ -20,7 +20,7 @@ class TDrawer(AbstractDrawer):
     def go_along(self, along):
         # setX is changing X to certain value, so instead of doing that, we want to move from current to new by adding value, not to that coordinate
         # e.g., turtle is at (100, 200), if we do go_along 200, we want to be at (300, 200) not (200,200)
-        currentX = turtle.position()[0]
+        currentX = turtle.xcor()
         if (turtle.isdown()):
             turtle.penup()
             turtle.setx(currentX + int(along))
@@ -30,7 +30,7 @@ class TDrawer(AbstractDrawer):
 
     def go_down(self, down):
         # Same idea to go_along
-        currentY = turtle.position()[1]
+        currentY = turtle.ycor()
         if (turtle.isdown()):
             turtle.penup()
             turtle.sety(currentY + int(down))
