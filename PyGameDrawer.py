@@ -13,7 +13,7 @@ from TIGr import AbstractDrawer
 class PyGameDrawer(AbstractDrawer):
     def __init__(self):
         pygame.init()
-        self.size = self.width, self.height = 500, 500
+        self.size = self.width, self.height = 1024, 1024
         self.screen = pygame.display.set_mode(self.size)
         self.x = self.width // 2
         self.y = self.height // 2
@@ -41,7 +41,8 @@ class PyGameDrawer(AbstractDrawer):
         self.x += int(along)
 
     def go_down(self, down):
-        self.y += int(down)
+        # based on normal x,y graph, going down (south is -y) to achieve this, unlike turtle, for PyGame and TKinter needs to minus the value.
+        self.y -= int(down)
 
     def draw_line(self, direction, distance):
         direction = int(direction)
@@ -90,4 +91,5 @@ class PyGameDrawer(AbstractDrawer):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
+                # updating the canvas
                 pygame.display.flip()
