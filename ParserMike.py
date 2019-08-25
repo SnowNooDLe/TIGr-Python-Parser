@@ -26,7 +26,11 @@ class ParserMike(AbstractParser):
         self.source = raw_source
         for line in self.source:
             self.command = line[0]
-            self.data = line[1]
+            if len(line) > 1:
+                self.data = line[1]
+            else:
+                self.data = 0
+            print(self.data)
             if self.command in self.lookup:
                 self.lookup[self.command]()
         try:
@@ -34,3 +38,9 @@ class ParserMike(AbstractParser):
         except:
             print("Completed")
 
+
+if __name__ == '__main__':
+    from TDrawer import *
+
+    p = ParserMike(TDrawer())
+    p.parse("E")
