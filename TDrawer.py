@@ -35,7 +35,7 @@ class TDrawer(AbstractDrawer):
             turtle.sety(y + int(down))
             turtle.pendown()
         else:
-            turtle.goty(y + int(down))
+            turtle.sety(y + int(down))
 
     def draw_line(self, direction, distance):
         # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
