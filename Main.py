@@ -10,10 +10,12 @@ from LookupArgParser import *
 from PyGameDrawer import *
 from TIGr import AbstractDrawer, AbstractParser, AbstractSourceReader
 
+
 def main():
     outputs = []
     if len(sys.argv) == 1:
-        print("You need to specify a CMD loop to enter, -TKCMD or -TCMD... or you can specify a TEXT file and declare outputs with -TK -T -P and -TXT ...GOOD LUCK!")
+        print(
+            "You need to specify a CMD loop to enter, -TKCMD or -TCMD... or you can specify a TEXT file and declare outputs with -TK -T -P and -TXT ...GOOD LUCK!")
     else:
         for arg in sys.argv:
             if arg == '-TCMD':
@@ -36,7 +38,8 @@ def main():
             output.go()
         sys.exit()
 
-def main_marcus(aparser):
+
+def main_marcus(aparser):  # Marcus and Josiah
     parser = aparser
     print('Welcome to Argeparse by Marcus and Josiah: ')
     while True:
@@ -51,10 +54,6 @@ def main_marcus(aparser):
             except:
                 print("")
 
+
 if __name__ == '__main__':
     main()
-
-
-
-
-    

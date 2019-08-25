@@ -52,7 +52,7 @@ class PyGameDrawer(AbstractDrawer):
         # except depends on the situation, may draw the line or not
         newCoords = self.getDestination(self.x, self.y, direction, distance)
         if (self.penDown):
-            pygame.draw.line(self.screen, self.penColour, [self.x, self.y], newCoords, 1)
+            pygame.draw.line(self.screen, self.penColour, [int(self.x), int(self.y)], newCoords, 1)
         self.x = newCoords[0]
         self.y = newCoords[1]
         pygame.display.flip()
@@ -78,7 +78,7 @@ class PyGameDrawer(AbstractDrawer):
             ourDirection += 90
 
     def draw_triangle(self, size):
-        ourDirection = 0
+        ourDirection = 120
         for i in range(3):
             self.draw_line(ourDirection, size)
             ourDirection += 120
@@ -89,4 +89,4 @@ class PyGameDrawer(AbstractDrawer):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
-                pygame.display.flip()
+                pygame.display.flip()  # Update the canvas
