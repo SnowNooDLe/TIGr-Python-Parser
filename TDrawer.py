@@ -39,20 +39,15 @@ class TDrawer(AbstractDrawer):
 
     def draw_line(self, direction, distance):
         # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
-        direction = self._convert_direction(direction)
+        # direction = self._convert_direction(direction)
+        if direction == 90 or direction == 270:
+            direction -= 90
+        else:
+            direction += 90
         distance = int(distance)
         turtle.seth(direction)
         if (turtle.isdown()):
             turtle.forward(distance)
-
-    def _convert_direction(self, direction):
-        # Turtle default direction:     convert
-        # 90 - north                    0 -> 90        +90
-        # 0 - east                      90-> 0         -90
-        # 270 - south                   180 -> 270     +90
-        # 180 - west                    270-> 180      -90
-        newdirection =  (direction + 90) % 360
-        return newdirection
 
     def draw_circle(self, size):
         turtle.circle(int(size))
