@@ -47,7 +47,7 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 
 ## Josiah and Marcus Points and Reasoning:
 
-* Parsed from Configurable Lookup Table x12:
+* Parsed from Configurable Lookup Table x2:
 	
 	* More Flexible
 	* It easier to add new functions to lookup table than adding functions to the class directly
@@ -55,7 +55,7 @@ Made for the 2019 Ara Advanced Programming (In Python) Class
 * Outputs with turtle x2:
 
   * More Functional
-  * We added more drawing functions to enhance the drawe
+  * We added more drawing functions to enhance the drawer
   
 * Interactive front-end x2:
 
