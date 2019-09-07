@@ -5,7 +5,11 @@ class Parser(AbstractParser):
     def parse(self, raw_source):
         for row in raw_source:
             self.command = row[0]
-            self.data = row[1]
+            try:
+                self.data = row[1]
+            except:
+                self.data = 0
+            
             try:
                 if self.command == 'P':
                     self.drawer.select_pen(self.data)

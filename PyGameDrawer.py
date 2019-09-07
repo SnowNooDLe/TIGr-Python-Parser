@@ -1,8 +1,11 @@
 import sys
 import os
+
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import math
 import pygame
 from pygame.locals import *
+# https://stackoverflow.com/questions/9815995/read-console-input-using-pygame
 # http://programarcadegames.com/python_examples/f.php?file=snake.py
 from TIGr import AbstractDrawer
 
@@ -10,21 +13,23 @@ from TIGr import AbstractDrawer
 class PyGameDrawer(AbstractDrawer):
     def __init__(self):
         pygame.init()
-        self.size = self.width, self.height = 500, 500
+        self.size = self.width, self.height = 1024, 1024
         self.screen = pygame.display.set_mode(self.size)
         self.x = self.width // 2
         self.y = self.height // 2
+        # Because this is a dictionary,
         self.colours = {'white': (255, 255, 255),
                         'black': (0, 0, 0),
                         'red': (255, 0, 0),
-                        'green': (0, 255, 0),
                         'blue': (0, 0, 255)}
+        # making an array that has values, so can be return to call whitin dictionary
+        self.penlist = ['black', 'red', 'blue']
         self.penColour = self.colours['black']
         self.screen.fill(self.colours['white'])
         self.penDown = True
 
     def select_pen(self, pen_num):
-        self.pen = self.colours[pen_num.lower()]
+        self.penColour = self.colours[self.penlist[int(pen_num) - 1]]
 
     def pen_down(self):
         self.penDown = True
@@ -40,11 +45,14 @@ class PyGameDrawer(AbstractDrawer):
 
     def draw_line(self, direction, distance):
         direction = int(direction)
+        if direction == 0 or direction == 180:
+            direction += 180
         distance = int(distance)
+        # doesnt matter whether pen is down or not, if this method is called, will still need to get new coords as pen will be moved
+        # except depends on the situation, may draw the line or not
+        newCoords = self.getDestination(self.x, self.y, direction, distance)
         if (self.penDown):
-            newCoords = self.getDestination(self.x, self.y, direction, distance)
-            pygame.draw.line(self.screen, self.penColour, [self.x, self.y], newCoords, 1)
-        
+            pygame.draw.line(self.screen, self.penColour, [int(self.x), int(self.y)], newCoords, 1)
         self.x = newCoords[0]
         self.y = newCoords[1]
         pygame.display.flip()
@@ -68,10 +76,9 @@ class PyGameDrawer(AbstractDrawer):
         for i in range(4):
             self.draw_line(ourDirection, size)
             ourDirection += 90
-            
 
     def draw_triangle(self, size):
-        ourDirection = 0
+        ourDirection = 120
         for i in range(3):
             self.draw_line(ourDirection, size)
             ourDirection += 120
@@ -82,5 +89,4 @@ class PyGameDrawer(AbstractDrawer):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
-                pygame.display.flip()
-
+                pygame.display.flip()  # Update the canvas

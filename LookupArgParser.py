@@ -7,37 +7,37 @@ from TXTDrawer import *
 
 
 class LookupArgParser(AbstractParser):
-    """
-    narg:
-    ? 0~1
-    * 0~many
-    + 1~many
-    """
-
     def __init__(self, drawer):
         AbstractParser.__init__(self, drawer)
-        self.lookup = {  # M
+        self.lookup = {  # Marcus and Josiah
             'P': lambda: self.drawer.select_pen(self.data),
             'D': lambda: self.drawer.pen_down(),
-            'N': lambda: self.drawer.draw_line(90, self.data[0]),
-            'E': lambda: self.drawer.draw_line(0, self.data[0]),
-            'W': lambda: self.drawer.draw_line(180, self.data[0]),
-            'S': lambda: self.drawer.draw_line(270, self.data[0]),
+            'N': lambda: self.drawer.draw_line(0, self.data[0]),
+            'E': lambda: self.drawer.draw_line(90, self.data[0]),
+            'W': lambda: self.drawer.draw_line(270, self.data[0]),
+            'S': lambda: self.drawer.draw_line(180, self.data[0]),
             'X': lambda: self.drawer.go_along(self.data[0]),
             'Y': lambda: self.drawer.go_down(self.data[0]),
             'U': lambda: self.drawer.pen_up(),
             'C': lambda: self.drawer.draw_circle(self.data[0]),
-            'R': lambda: self.drawer.draw_rectangle(self.data[0], self.data[1]),
+            'R': lambda: self.drawer.draw_rectangle(self.data[0]),
             'T': lambda: self.drawer.draw_triangle(self.data[0]),
         }
         # Clever Solution combining lookup table and argparse!
         # https://stackoverflow.com/questions/27529610/call-function-based-on-argparse
         self.parser = ArgumentParser()
         self.parser.add_argument("command", help="command argument", choices=self.lookup.keys())
-        self.parser.add_argument("parameters", help="stored parameters", nargs='*', type=int)
-        self.parser.add_argument("-dr", "--drawer", dest='drawer', help="Select drawer", choices=['turtle', 'tkinter','TXT'],
+        # narg:
+        # ? means 0~1
+        # * means 0~many
+        # + means 1~many
+        # nargs accepts multiple parameters
+        self.parser.add_argument("parameters", help="stored parameters", nargs='*',
+                                 type=int)
+        self.parser.add_argument("-dr", "--drawer", dest='drawer', help="Select drawer",
+                                 choices=['turtle', 'tkinter', 'TXT'],
                                  default='turtle'
-                                 )
+                                 )  # Default drawer is turtle
 
     def parse(self, raw_source):
         self.source = raw_source  # a line
@@ -50,8 +50,6 @@ class LookupArgParser(AbstractParser):
             self.data.extend(['0', '0'])  # insert default to prevent insufficient parameters
 
             func = self.lookup[parsedargs.command]()
-            # func()
-            # TODO: drawer will close after the task finished
 
     def _set_drawer(self, args):
         drawer = args.drawer

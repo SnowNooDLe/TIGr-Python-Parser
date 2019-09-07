@@ -2,6 +2,10 @@ import sys
 from TIGr import AbstractSourceReader
 
 
+# This needs to be updated (maybe with a Design Pattern)
+# Detects if data is inside standard in (which means it has been piped to the program) and caches that
+# if there is no stdin then try to read from a file location
+# else read the cache at last resort
 class Reader(AbstractSourceReader):
     def go(self):
         content = []

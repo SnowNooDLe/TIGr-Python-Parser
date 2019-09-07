@@ -1,10 +1,16 @@
+import math
 from TIGr import AbstractDrawer
 import turtle
 
 
-class TDrawer(AbstractDrawer):  
+# Turtle uses counter clockwise system and zero point starts from the left hand side
+
+class TDrawer(AbstractDrawer):
+    def __init__(self):
+        self.penlist = ["black", "red", "blue"]
+
     def select_pen(self, pen_num):
-        turtle.color("black")
+        turtle.pencolor(self.penlist[int(pen_num) - 1])
 
     def pen_down(self):
         turtle.pendown()
@@ -12,35 +18,65 @@ class TDrawer(AbstractDrawer):
     def pen_up(self):
         turtle.penup()
 
+    # Because for along and down, we dont wanna draw line while we are moving
     def go_along(self, along):
-        turtle.setx(float(along))
+        x = turtle.xcor()
+        if (turtle.isdown()):
+            turtle.penup()
+            turtle.setx(x + int(along))
+            turtle.pendown()
+        else:
+            turtle.setx(x + int(along))
 
     def go_down(self, down):
-        turtle.sety(float(down))
+        y = turtle.ycor()
+        if (turtle.isdown()):
+            turtle.penup()
+            turtle.sety(y + int(down))
+            turtle.pendown()
+        else:
+            turtle.sety(y + int(down))
 
     def draw_line(self, direction, distance):
-        turtle.setheading(float(direction))
-        turtle.forward(int(distance))
-        
-    def draw_circle(self, radius):
-        turtle.circle(int(radius))
+        # IF YOU WANT TO HAVE DYNAMIC DIRECTIONS YOU NEED TO UPDATE THIS CODE
+        # direction = self._convert_direction(direction)
+        if direction == 90 or direction == 270:
+            direction -= 90
+        else:
+            direction += 90
+        distance = int(distance)
+        turtle.seth(direction)
+        if (turtle.isdown()):
+            turtle.forward(distance)
 
-    def draw_rectangle(self, width, height=None):  # J
-        if height == None:
-            height = width
-        for i in range(2):
-            turtle.forward(int(width))
-            turtle.right(90)
-            turtle.forward(int(height))
-            turtle.right(90)
+    def draw_circle(self, size):
+        turtle.circle(int(size))
 
-    def draw_triangle(self, length):  # M
+    # for rectangle and triangle, unlike TKinter, they work based on where they are facing and remember previous move, not like TKinter resets where
+    # they are facing everytime we move.
+    def draw_rectangle(self, size):
+        ourDirection = 0
+        for i in range(4):
+            self.draw_line(ourDirection, size)
+            ourDirection -= 90
+
+    def draw_triangle(self, size):
+        ourDirection = 0
         for i in range(3):
-            turtle.right(120)
-            turtle.forward(int(length))
+            self.draw_line(ourDirection, size)
+            ourDirection -= 120
 
     def end(self):
-        print("Turtle is sleeping now")
-            
+        turtle.exitonclick()
 
 
+if __name__ == '__main__':
+    d = TDrawer()
+    # d.draw_circle(50)
+    # d.go_along(50)
+    d.draw_rectangle(50)
+    # d.go_along(50)
+    # d.draw_rectangle(50)
+    d.go_along(50)
+    d.draw_triangle(50)
+    d.end()
