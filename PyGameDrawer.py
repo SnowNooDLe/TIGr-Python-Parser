@@ -13,7 +13,7 @@ from TIGr import AbstractDrawer
 class PyGameDrawer(AbstractDrawer):
     def __init__(self):
         pygame.init()
-        self.size = self.width, self.height = 500, 500
+        self.size = self.width, self.height = 1024, 1024
         self.screen = pygame.display.set_mode(self.size)
         self.x = self.width // 2
         self.y = self.height // 2
@@ -41,16 +41,19 @@ class PyGameDrawer(AbstractDrawer):
         self.x += int(along)
 
     def go_down(self, down):
-        self.y += int(down)
+        # based on normal x,y graph, going down (south is -y) to achieve this, unlike turtle, for PyGame and TKinter needs to minus the value.
+        self.y -= int(down)
 
     def draw_line(self, direction, distance):
         direction = int(direction)
         distance = int(distance)
+        if direction == 0 or direction == 180:
+            direction += 180
         # doesnt matter whether pen is down or not, if this method is called, will still need to get new coords as pen will be moved
         # except depends on the situation, may draw the line or not
         newCoords = self.getDestination(self.x, self.y, direction, distance)
         if (self.penDown):
-            pygame.draw.line(self.screen, self.penColour, [self.x, self.y], newCoords, 1)
+            pygame.draw.line(self.screen, self.penColour, [int(self.x), int(self.y)], newCoords, 1)
         self.x = newCoords[0]
         self.y = newCoords[1]
         pygame.display.flip()
@@ -66,7 +69,8 @@ class PyGameDrawer(AbstractDrawer):
         return new_x, new_y
 
     def draw_circle(self, size):
-        pygame.draw.circle(self.screen, self.penColour, [self.x, self.y], int(size))
+        # Adding int for both self.x and y as depends on what we drew before, x and y value can be float
+        pygame.draw.circle(self.screen, self.penColour, [int(self.x), int(self.y)], int(size))
         pygame.display.flip()
 
     def draw_rectangle(self, size):
@@ -76,7 +80,7 @@ class PyGameDrawer(AbstractDrawer):
             ourDirection += 90
 
     def draw_triangle(self, size):
-        ourDirection = 0
+        ourDirection = 120
         for i in range(3):
             self.draw_line(ourDirection, size)
             ourDirection += 120
@@ -87,4 +91,5 @@ class PyGameDrawer(AbstractDrawer):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
+                # updating the canvas
                 pygame.display.flip()

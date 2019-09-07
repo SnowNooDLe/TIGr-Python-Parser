@@ -6,10 +6,10 @@ from TIGr import AbstractDrawer
 class TKDrawer(AbstractDrawer):
 
     def __init__(self):
-        self.x = 250
-        self.y = 250
+        self.x = 512
+        self.y = 512
         self.master = Tk()
-        self.w = Canvas(self.master, width=500, height=500)
+        self.w = Canvas(self.master, width=1024, height=1024)
         self.w.pack()
         self.pen = "black"
         self.penDown = True
@@ -28,11 +28,14 @@ class TKDrawer(AbstractDrawer):
         self.x += int(along)
 
     def go_down(self, down):
-        self.y += int(down)
+        # based on normal x,y graph, going down (south is -y) to achieve this, unlike turtle, for PyGame and TKinter needs to minus the value.
+        self.y -= int(down)
 
     def draw_line(self, direction, distance):
         direction = int(direction)
         distance = int(distance)
+        if direction == 0 or direction == 180:
+            direction += 180
         # as we only want to draw line when pen is down but if pen is up and wanna draw line, pen will be moved without leaving mark,
         # so still need to change coordinate, hence get new coords
         newCoords = self.getDestination(self.x, self.y, direction, distance)
@@ -59,14 +62,14 @@ class TKDrawer(AbstractDrawer):
             self.draw_line(ourDirection, int(size) / 10)
             ourDirection += 1
 
-    def draw_rectangle(self, size):  # J
+    def draw_rectangle(self, size):
         ourDirection = 0
         for i in range(4):
             self.draw_line(ourDirection, size)
             ourDirection += 90
 
-    def draw_triangle(self, size):  # M
-        ourDirection = 0
+    def draw_triangle(self, size):
+        ourDirection = 120
         for i in range(3):
             self.draw_line(ourDirection, size)
             ourDirection += 120

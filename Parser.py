@@ -8,7 +8,7 @@ class Parser(AbstractParser):
             try:
                 self.data = row[1]
             except:
-                print("Doesn't have second input as its either pen down or pen up")
+                self.data = 0
             try:
                 if self.command == 'P':
                     self.drawer.select_pen(self.data)

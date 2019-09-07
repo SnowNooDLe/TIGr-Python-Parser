@@ -37,6 +37,24 @@ Moved where newCoords variable is, it used to be after if statement but that cas
 * For I & Chris, decided to do go_along & go_down like in photo as we don't want turtle to draw the line while its moving and if you guys want that way, feel free to do so :)
 
 
+## Working great in both directionwise & drawing tool
+
+1. Draw line with all drawing tool
+
+![Turtle lines](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/T.JPG)
+
+![TK lines](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/TK.JPG)
+
+![PyGame lines](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/P.JPG)
+
+2. Draw shapes with all drawing tools
+
+![Turtle shapes](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/T1.JPG)
+
+![TK shapes](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/TK1.JPG)
+
+![PyGame shapes](https://github.com/jok0436/TIGr-Python-Parser/blob/ATeamJoMaTo/image/p1.JPG)
+
 
 
 ## Josiah and Tom Created Files:
